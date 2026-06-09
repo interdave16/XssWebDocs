@@ -174,14 +174,14 @@
             padding-left: 0;
         }
 
-            .cap-list li {
-                margin-bottom: 8px;
-            }
+        .cap-list li {
+            margin-bottom: 8px;
+        }
 
-            .cap-list i {
-                color: var(--xrp-accent);
-                margin-right: 8px;
-            }
+        .cap-list i {
+            color: var(--xrp-accent);
+            margin-right: 8px;
+        }
 
         .financial-grid img {
             height: 190px;
@@ -229,6 +229,14 @@
             padding: 35px;
         }
 
+        @media (max-width: 768px) {
+            .screen-img {
+                max-width: 220px;
+                margin: 0 auto;
+                display: block;
+            }
+        }
+
         @media (max-width: 992px) {
             .sidebar {
                 display: none;
@@ -245,6 +253,79 @@
 
             section {
                 padding: 60px 25px;
+            }
+        }
+
+
+        .module-section {
+            padding: 100px 0;
+        }
+
+        .module-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .5rem 1rem;
+            border-radius: 999px;
+            background: rgba(13,110,253,.1);
+            color: #0d6efd;
+            font-weight: 600;
+        }
+
+        .lead-text {
+            font-size: 1.15rem;
+            color: #495057;
+            line-height: 1.8;
+        }
+
+        .mobile-showcase {
+            background: #fff;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,.08);
+        }
+
+        .screen-img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            gap: .85rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            font-weight: 500;
+        }
+
+            .feature-item i {
+                color: #0d6efd;
+            }
+
+        @media (max-width: 768px) {
+
+            .module-section {
+                padding: 60px 0;
+            }
+
+            .screen-img {
+                max-width: 280px;
+            }
+
+            .section-title {
+                text-align: center;
+            }
+
+            .module-badge {
+                margin: 0 auto;
+                display: table;
             }
         }
     </style>
@@ -838,36 +919,80 @@
                     </div>
                 </div>
             </section>
+            <section id="mobile" class="module-section py-5">
+                <div class="container">
+                    <div class="row align-items-center g-5">
 
-            <section id="mobile">
-                <div class="row module-row g-5">
-                    <div class="col-lg-5 module-text">
-                        <h2 class="section-title">Driver Mobile Application</h2>
+                        <!-- Mobile Screenshot -->
+                        <div class="col-lg-6 order-1 order-lg-2">
+                            <div class="mobile-showcase text-center">
+                                <img src="Images/MobileApp.png"
+                                     class="screen-img"
+                                     alt="Driver Mobile Application">
+                            </div>
+                        </div>
 
-                        <p>
-                            The Driver Mobile Application extends XRP from the back office and warehouse
-                            into the field. Drivers can view assigned routes, manage stops, support delivery
-                            execution, and keep transportation activity connected to the enterprise workflow.
-                        </p>
+                        <!-- Content -->
+                        <div class="col-lg-6 order-2 order-lg-1">
+                            <span class="module-badge">
+                                <i class="bi bi-phone"></i>
+                                Mobile Operations
+                            </span>
 
-                        <p>
-                            Mobile execution closes the loop between dispatch, customer delivery, shipment
-                            status, and future proof-of-delivery workflows.
-                        </p>
+                            <h2 class="section-title mt-3">
+                                Driver Mobile Application
+                            </h2>
 
-                        <ul class="cap-list mt-4">
-                            <li><i class="bi bi-check-circle-fill"></i>Driver route assignments</li>
-                            <li><i class="bi bi-check-circle-fill"></i>Real Time GPS</li>
-                            <li><i class="bi bi-check-circle-fill"></i>Stop-by-stop execution visibility</li>
-                            <li><i class="bi bi-check-circle-fill"></i>Delivery workflow support</li>
-                            <li><i class="bi bi-check-circle-fill"></i>Dispatch-to-driver communication</li>
-                            <li><i class="bi bi-check-circle-fill"></i>Future proof-of-delivery support</li>
-                            <li><i class="bi bi-check-circle-fill"></i>Mobile field operations integration</li>
-                        </ul>
-                    </div>
+                            <p class="lead-text">
+                                Extend XRP beyond the warehouse and dispatch office into the field.
+                                Drivers receive route assignments, execute deliveries, update shipment
+                                status, and remain connected to enterprise operations in real time.
+                            </p>
 
-                    <div class="col-lg-7">
-                        <img src="Images/MobileApp.png" class="screen-img" alt="Driver Mobile Application">
+                            <p>
+                                Mobile execution closes the operational loop between transportation,
+                                customer delivery, shipment visibility, and future proof-of-delivery
+                                workflows.
+                            </p>
+
+                            <div class="feature-grid mt-4">
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Driver route assignments
+                                </div>
+
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Real-Time GPS tracking
+                                </div>
+
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Stop-by-stop execution visibility
+                                </div>
+
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Delivery workflow support
+                                </div>
+
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Dispatch-to-driver communication
+                                </div>
+
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Proof-of-delivery foundation
+                                </div>
+
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Mobile field operations integration
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
