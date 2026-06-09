@@ -1,49 +1,1036 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Xtreme Software Solutions  XRP</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XRP Enterprise Platform</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --xrp-blue: #0b3d78;
+            --xrp-dark: #071c33;
+            --xrp-light: #f4f8fc;
+            --xrp-accent: #1d75d8;
+            --xrp-border: #dce6f2;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--xrp-light);
+            color: #1d2b3a;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .layout {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            background: #fff;
+            border-right: 1px solid var(--xrp-border);
+            padding: 18px;
+            z-index: 1000;
+        }
+
+        .sidebar-logo {
+            text-align: center;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #e4ecf5;
+            margin-bottom: 15px;
+        }
+
+        .sidebar-logo img {
+            max-width: 160px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 9px 10px;
+            color: #24445f;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: .93rem;
+        }
+
+        .sidebar a:hover {
+            background: #eaf3ff;
+            color: var(--xrp-blue);
+        }
+
+        .main {
+            margin-left: 280px;
+            width: calc(100% - 280px);
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #071c33, #0b3d78, #1681d8);
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 80px 6%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,.15);
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #d9ecff;
+            max-width: 780px;
+        }
+
+        .hero-img {
+            max-height: 430px;
+            border-radius: 18px;
+            box-shadow: 0 20px 55px rgba(0,0,0,.35);
+        }
+
+        section {
+            padding: 80px 7%;
+        }
+
+        .section-white {
+            background: white;
+        }
+
+        .section-title {
+            color: var(--xrp-blue);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            color: #51718c;
+            font-size: 1.1rem;
+            max-width: 980px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            height: 100%;
+            min-height: 280px;
+            box-shadow: 0 8px 28px rgba(7,28,51,.08);
+            border: 1px solid #e3edf7;
+        }
+
+        .feature-card h4 {
+            color: var(--xrp-blue);
+            font-weight: 800;
+        }
+
+        .feature-card i {
+            font-size: 2.4rem;
+            color: var(--xrp-accent);
+            margin-bottom: 14px;
+        }
+
+        .screen-img {
+            width: 100%;
+            border-radius: 14px;
+            box-shadow: 0 10px 35px rgba(7,28,51,.15);
+            border: 1px solid #d8e4ef;
+            background: white;
+        }
+
+        .module-row {
+            align-items: center;
+            margin-top: 35px;
+        }
+
+        .module-text p {
+            font-size: 1.05rem;
+            color: #334d63;
+        }
+
+        .cap-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+            .cap-list li {
+                margin-bottom: 8px;
+            }
+
+            .cap-list i {
+                color: var(--xrp-accent);
+                margin-right: 8px;
+            }
+
+        .financial-grid img {
+            height: 190px;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .workflow-strip {
+            background: #071c33;
+            color: white;
+            border-radius: 18px;
+            padding: 26px;
+            font-weight: 700;
+            line-height: 1.9;
+            box-shadow: 0 12px 35px rgba(7,28,51,.25);
+        }
+
+        .tech-panel {
+            background: linear-gradient(135deg, #071c33, #0b3d78);
+            color: white;
+            border-radius: 22px;
+            padding: 36px;
+            box-shadow: 0 16px 45px rgba(7,28,51,.25);
+        }
+
+            .tech-panel p {
+                color: #d9ecff;
+            }
+
+        .tech-pill {
+            display: inline-block;
+            background: rgba(255,255,255,.14);
+            border: 1px solid rgba(255,255,255,.22);
+            color: white;
+            padding: 8px 14px;
+            border-radius: 999px;
+            margin: 5px 5px 5px 0;
+            font-weight: 700;
+        }
+
+        footer {
+            background: var(--xrp-dark);
+            color: #dcecff;
+            text-align: center;
+            padding: 35px;
+        }
+
+        @media (max-width: 992px) {
+            .sidebar {
+                display: none;
+            }
+
+            .main {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 2.7rem;
+            }
+
+            section {
+                padding: 60px 25px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <div class="container mt-5">
+    <div class="layout">
 
-        <h1>XRP Enterprise Platform</h1>
+        <nav class="sidebar">
+            <div class="sidebar-logo">
+                <img src="Images/Logo.png" alt="XRP Logo">
+            </div>
 
-        <p>Enterprise Documentation Portal</p>
+            <a href="#home">1. Executive Summary</a>
+            <a href="#vision">2. The XRP Vision</a>
+            <a href="#technical">3. Technical Mission</a>
 
-        <hr />
+            <a href="#architecture">4. Platform Architecture</a>
+            <a href="#workflow">5. End-to-End Workflow</a>
 
-        <div class="list-group">
+            <a href="#erp">6. ERP Foundation</a>
+            <a href="#customers">7. Customer Management</a>
+            <a href="#vendors">8. Vendor Management</a>
+            <a href="#inventory">9. Inventory Management</a>
 
-            <a href="architecture.html"
-               class="list-group-item list-group-item-action">
-                Platform Architecture
-            </a>
+            <a href="#manufacturing">10. Manufacturing Operations</a>
+            <a href="#assemblies">11. Assembly Management</a>
+            <a href="#assemblybuilds">12. Assembly Builds</a>
+            <a href="#scheduler">13. Production Scheduler</a>
 
-            <a href="financials.html"
-               class="list-group-item list-group-item-action">
-                Financial Management
-            </a>
+            <a href="#boxing">14. Boxing, Packing & Manifesting</a>
+            <a href="#pallets">15. Pallet Packing Intelligence</a>
+            <a href="#containers">16. Container Loading Intelligence</a>
 
-            <a href="inventory.html"
-               class="list-group-item list-group-item-action">
-                Inventory Management
-            </a>
+            <a href="#routes">17. Route Planning & Dispatch</a>
+            <a href="#mobile">18. Driver Mobile Application</a>
+            <a href="#transportation">19. Transportation Management</a>
 
-            <a href="manufacturing.html"
-               class="list-group-item list-group-item-action">
-                Manufacturing
-            </a>
+            <a href="#financials">20. Financial Management</a>
+            <a href="#security">21. Identity & Security</a>
+            <a href="#roadmap">22. Future Roadmap</a>
+        </nav>
 
-            <a href="logistics.html"
-               class="list-group-item list-group-item-action">
-                Logistics
-            </a>
+        <main class="main">
 
-        </div>
+            <section id="home" class="hero">
+                <div class="container-fluid">
+                    <div class="row align-items-center g-5">
+                        <div class="col-lg-7">
+                            <div class="hero-badge">Open Source ERP • Manufacturing • WMS • TMS • Financials</div>
+
+                            <h1>XRP Enterprise Platform</h1>
+
+                            <p>
+                                One platform connecting customers, vendors, inventory, manufacturing,
+                                scheduling, warehouse execution, route planning, mobile delivery,
+                                transportation, and financial operations.
+                            </p>
+
+                            <p>
+                                XRP gives organizations real-time visibility and operational control from
+                                order entry to final delivery, invoicing, and accounting.
+                            </p>
+
+                            <div class="mt-4 d-flex gap-3 flex-wrap">
+                                <a href="#architecture" class="btn btn-primary btn-lg">Explore Platform</a>
+                                <a href="#technical" class="btn btn-outline-light btn-lg">Technical Mission</a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5 text-center">
+                            <img src="Images/HomePage.png" class="img-fluid hero-img" alt="XRP Home Page">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="vision" class="section-white">
+                <h2 class="section-title">The XRP Vision</h2>
+
+                <p class="section-subtitle">
+                    XRP replaces disconnected software silos with a unified enterprise platform where
+                    customers, vendors, inventory, manufacturing, warehouse operations, transportation,
+                    mobile delivery, and financial management operate from a single operational data model.
+                </p>
+
+                <div class="row g-4 mt-4">
+
+                    <div class="col-lg col-md-6">
+                        <div class="feature-card">
+                            <i class="bi bi-eye"></i>
+                            <h4>Real-Time Visibility</h4>
+                            <p>
+                                Monitor inventory, production, fulfillment, transportation,
+                                and financial activity in real time across the enterprise.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg col-md-6">
+                        <div class="feature-card">
+                            <i class="bi bi-diagram-3"></i>
+                            <h4>Workflow Integration</h4>
+                            <p>
+                                Connect sales, purchasing, manufacturing, warehouse execution,
+                                logistics, mobile operations, and accounting into a single workflow.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg col-md-6">
+                        <div class="feature-card">
+                            <i class="bi bi-buildings"></i>
+                            <h4>Enterprise Scalability</h4>
+                            <p>
+                                Support multi-plant operations, shared services,
+                                customer-specific deployments, and future organizational growth.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg col-md-6">
+                        <div class="feature-card">
+                            <i class="bi bi-graph-up-arrow"></i>
+                            <h4>Operational Intelligence</h4>
+                            <p>
+                                Transform operational data into actionable insights that improve
+                                efficiency, decision-making, profitability, and customer service.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg col-md-6">
+                        <div class="feature-card">
+                            <i class="bi bi-github"></i>
+                            <h4>Open Source Platform</h4>
+                            <p>
+                                Built on an open-source architecture with GitHub-managed source code,
+                                AI-assisted development, and Codex-connected engineering workflows.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="technical">
+                <div class="tech-panel">
+                    <h2 class="mb-3">Technical Mission</h2>
+
+                    <p>
+                        XRP is built with a practical technical mission: give organizations a modern,
+                        transparent, open-source enterprise platform that can be owned, extended,
+                        integrated, and adapted without being locked into a closed software ecosystem.
+                    </p>
+
+                    <p>
+                        The platform is designed around Blazor Server, Microsoft SQL Server, and an
+                        extensible data architecture that can interface with SQL Server, Oracle, MySQL,
+                        and customer-specific database environments. XRP is built for real operational
+                        systems, not just presentation screens.
+                    </p>
+
+                    <p>
+                        By combining open-source ownership with AI-assisted development workflows and
+                        Codex-connected engineering, XRP can evolve quickly while keeping the source code,
+                        business logic, workflows, and deployment model visible and controllable.
+                    </p>
+
+                    <div class="mt-4">
+                        <span class="tech-pill">Blazor Server</span>
+                        <span class="tech-pill">MS SQL Server</span>
+                        <span class="tech-pill">Oracle Ready</span>
+                        <span class="tech-pill">MySQL Ready</span>
+                        <span class="tech-pill">Open Source</span>
+                        <span class="tech-pill">Codex Interfaced</span>
+                        <span class="tech-pill">Customer Extendable</span>
+                        <span class="tech-pill">Multi-Plant Ready</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="architecture" class="section-white">
+                <div class="row module-row g-5">
+                    <div class="col-lg-5 module-text">
+                        <h2 class="section-title">Platform Architecture</h2>
+
+                        <p>
+                            ERP + Manufacturing + WMS + TMS + Mobile + Financials + Logistics Intelligence.
+                            Every module shares a common operational workflow and data model.
+                        </p>
+
+                        <ul class="cap-list mt-4">
+                            <li><i class="bi bi-check-circle-fill"></i>One platform</li>
+                            <li><i class="bi bi-check-circle-fill"></i>One operational data model</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Open-source ownership model</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Real-time operational visibility</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Multi-plant enterprise architecture</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <img src="Images/PlatformArc.png" class="screen-img" alt="Platform Architecture">
+                    </div>
+                </div>
+            </section>
+
+            <section id="workflow">
+                <h2 class="section-title">End-to-End Workflow</h2>
+
+                <p class="section-subtitle">
+                    XRP follows the full operational lifecycle from customer demand through fulfillment,
+                    shipment execution, delivery, invoicing, and financial reporting.
+                </p>
+
+                <div class="workflow-strip mt-4">
+                    Customer → Sales Order → Inventory → Assembly → Scheduler → Boxing → Packing →
+                    Manifesting → Palletization → Container Loading → Route Planning → Dispatch →
+                    Driver Mobile App → Delivery → Financials
+                </div>
+
+                <img src="Images/EndToEndWorkflow.png" class="screen-img mt-4" alt="End to End Workflow">
+            </section>
+
+            <section id="erp" class="section-white">
+                <h2 class="section-title">ERP Foundation</h2>
+
+                <p class="section-subtitle">
+                    XRP provides the operational foundation for managing customers, vendors, inventory,
+                    purchasing, sales orders, manufacturing, warehouse execution, route planning,
+                    mobile delivery, logistics, and financials.
+                </p>
+
+                <div class="row g-4 mt-4">
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <i class="bi bi-people"></i>
+                            <h4>Customer Management</h4>
+                            <p>Centralized customer records connected to sales orders, shipments, invoices, and payments.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <i class="bi bi-truck-front"></i>
+                            <h4>Vendor Management</h4>
+                            <p>Supplier visibility across purchasing, vendor parts, payables, and procurement workflows.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <i class="bi bi-box-seam"></i>
+                            <h4>Inventory Management</h4>
+                            <p>Connect inventory items to vendors, assemblies, components, routes, costing, and fulfillment.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <img src="Images/SalesOrderList.png" class="screen-img mt-5" alt="Sales Orders">
+            </section>
+
+            <section id="customers">
+                <div class="row module-row g-5">
+                    <div class="col-lg-5 module-text">
+                        <h2 class="section-title">Customer Management</h2>
+
+                        <p>
+                            Customer Management provides a centralized platform for managing customer accounts,
+                            sales activity, fulfillment visibility, shipment history, invoices, payments,
+                            and service interactions across the enterprise.
+                        </p>
+
+                        <p>
+                            Every customer record becomes part of the full operational workflow, connecting
+                            order entry, inventory allocation, production, packing, delivery, and receivables.
+                        </p>
+
+                        <ul class="cap-list mt-4">
+                            <li><i class="bi bi-check-circle-fill"></i>Customer account visibility</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Sales order integration</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Shipment and delivery history</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Accounts receivable visibility</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Multi-location customer support</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <img src="Images/SalesOrderList.png" class="screen-img" alt="Customer Management">
+                    </div>
+                </div>
+            </section>
+
+            <section id="vendors" class="section-white">
+                <div class="row module-row g-5">
+                    <div class="col-lg-5 module-text">
+                        <h2 class="section-title">Vendor Management</h2>
+
+                        <p>
+                            Vendor Management provides a centralized platform for managing supplier relationships,
+                            purchasing activity, vendor parts, procurement workflows, supplier accountability,
+                            and accounts payable integration.
+                        </p>
+
+                        <p>
+                            XRP connects vendors directly to inventory sourcing, purchase orders, receiving,
+                            costing, financial obligations, and operational planning.
+                        </p>
+
+                        <ul class="cap-list mt-4">
+                            <li><i class="bi bi-check-circle-fill"></i>Vendor account management</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Vendor part mapping</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Purchase order integration</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Supplier performance visibility</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Accounts payable integration</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <img src="Images/APInvoiceList.png" class="screen-img" alt="Vendor Management">
+                    </div>
+                </div>
+            </section>
+
+            <section id="inventory">
+                <div class="row module-row g-5">
+                    <div class="col-lg-5 module-text">
+                        <h2 class="section-title">Inventory Management</h2>
+
+                        <p>
+                            Inventory Management connects products, assemblies, components, vendor parts,
+                            costing, warehouse movement, sales demand, and fulfillment execution into
+                            a single operational view.
+                        </p>
+
+                        <p>
+                            XRP does more than track stock. It maps inventory to the complete lifecycle:
+                            purchasing, assembly, scheduling, boxing, palletization, container loading,
+                            transportation, mobile delivery, and financial reporting.
+                        </p>
+
+                        <ul class="cap-list mt-4">
+                            <li><i class="bi bi-check-circle-fill"></i>Real-time inventory visibility</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Assembly and component mapping</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Vendor part allocation</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Inventory reservations</li>
+                            <li><i class="bi bi-check-circle-fill"></i>FIFO costing and valuation</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Traceability from receipt to shipment</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <img src="Images/INVMapping.png" class="screen-img" alt="Inventory Management">
+                    </div>
+                </div>
+            </section>
+
+            <section id="manufacturing" class="section-white">
+                <div class="row module-row g-5">
+                    <div class="col-lg-5 module-text">
+                        <h2 class="section-title">Manufacturing Operations</h2>
+
+                        <p>
+                            Assembly Management, Bills of Material, Machine Stops, Routes, and Traceability
+                            support repeatable production workflows and operational visibility.
+                        </p>
+
+                        <p>
+                            XRP connects manufacturing activity directly to inventory, sales demand,
+                            scheduling, warehouse execution, and costing.
+                        </p>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <img src="Images/Manufacturing.png" class="screen-img" alt="Manufacturing Operations">
+                    </div>
+                </div>
+            </section>
+
+            <section id="assemblies">
+                <div class="row module-row g-5">
+                    <div class="col-lg-5 module-text">
+                        <h2 class="section-title">Assembly Management</h2>
+
+                        <p>
+                            Assembly Management connects bills of material, component requirements,
+                            machine stops, production routes, inventory consumption, and finished-goods
+                            creation into a repeatable manufacturing workflow.
+                        </p>
+
+                        <p>
+                            XRP allows each assembly to carry its own route structure, operational steps,
+                            component relationships, and traceability path so production can be planned,
+                            scheduled, executed, and costed from the same data foundation.
+                        </p>
+
+                        <ul class="cap-list mt-4">
+                            <li><i class="bi bi-check-circle-fill"></i>Bill of Material management</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Assembly route planning</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Machine stop sequencing</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Component consumption tracking</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Finished-goods production visibility</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Assembly costing and traceability</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <img src="Images/AssemblyRoutes.png" class="screen-img" alt="Assembly Routes">
+                    </div>
+                </div>
+            </section>
+
+            <section id="assemblybuilds" class="section-white">
+                <div class="row module-row g-5">
+
+                    <div class="col-lg-5 module-text">
+                        <h2 class="section-title">Assembly Builds</h2>
+
+                        <p>
+                            Assembly Builds provide the operational execution layer of manufacturing,
+                            transforming planned assemblies into finished goods through controlled
+                            production workflows, material consumption, labor execution, and
+                            real-time production tracking.
+                        </p>
+
+                        <p>
+                            XRP enables operators to execute assembly work directly from the
+                            workstation while maintaining complete visibility into production status,
+                            component usage, routing progress, machine activity, and finished-goods output.
+                        </p>
+
+                        <p>
+                            Every build remains connected to its Bill of Material, Assembly Route,
+                            Inventory Transactions, and Manufacturing History, providing complete
+                            traceability from raw materials to finished product.
+                        </p>
+
+                        <ul class="cap-list mt-4">
+                            <li><i class="bi bi-check-circle-fill"></i>Real-time assembly execution</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Workstation-driven production workflows</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Material consumption tracking</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Assembly route execution</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Production status visibility</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Finished goods creation</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Manufacturing traceability</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Assembly labor and activity tracking</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <img src="Images/AssemblyWorkStation.png"
+                             class="screen-img"
+                             alt="Assembly Workstation">
+                    </div>
+
+                </div>
+            </section>
+
+
+            <section id="scheduler">
+                <div class="row module-row g-5">
+                    <div class="col-lg-5 module-text">
+                        <h2 class="section-title">Production Scheduler</h2>
+
+                        <p>
+                            The Multi-Plant Production Scheduler serves as the operational command center for manufacturing,
+                            warehouse execution, and logistics planning. It coordinates assembly builds,
+                            boxing operations, pallet packing, container loading, route preparation,
+                            and shipment execution through a single integrated workflow.
+                        </p>
+
+                        <p>
+                            XRP allows planners and operations teams to schedule work before execution,
+                            monitor progress in real time, and manage resources across production,
+                            fulfillment, transportation, and delivery activities. Every scheduled event
+                            remains connected to inventory, assemblies, customer orders, shipping requirements,
+                            and operational status updates.
+                        </p>
+
+                        <p>
+                            The Scheduler provides visibility into work that is planned, in progress,
+                            completed, packed, palletized, loaded, dispatched, and delivered. By connecting
+                            manufacturing and logistics operations into a unified workflow, organizations
+                            gain improved resource utilization, reduced bottlenecks, and greater operational control.
+                        </p>
+
+                        <ul class="cap-list mt-4">
+                            <li><i class="bi bi-check-circle-fill"></i>Assembly build scheduling</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Production resource planning</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Boxing and packing coordination</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Pallet packing workflows</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Container loading preparation</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Route planning integration</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Dispatch and shipment execution</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Real-time operational visibility</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <img src="Images/Scheduler.png" class="screen-img" alt="Scheduler">
+                    </div>
+                </div>
+            </section>
+
+            <section id="boxing" class="section-white">
+                <div class="row module-row g-5">
+                    <div class="col-lg-5 module-text">
+                        <h2 class="section-title">Boxing, Packing & Manifesting</h2>
+
+                        <p>
+                            Boxing, Packing, and Manifesting provide the operational execution layer that
+                            transforms customer orders into shipment-ready freight. XRP orchestrates the
+                            fulfillment workflow from packed cartons and palletized freight to shipment
+                            manifests, route preparation, and transportation execution.
+                        </p>
+
+                        <p>
+                            Every box, pallet, and shipment remains connected to the original customer order,
+                            providing complete visibility, traceability, and operational control throughout
+                            the fulfillment lifecycle.
+                        </p>
+
+                        <ul class="cap-list mt-4">
+                            <li><i class="bi bi-check-circle-fill"></i>Intelligent boxing and packing workflows</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Shipment consolidation and manifest generation</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Pallet and freight preparation</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Transportation readiness validation</li>
+                            <li><i class="bi bi-check-circle-fill"></i>End-to-end order traceability</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Real-time fulfillment visibility</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <img src="Images/PackBoxes.png" class="screen-img" alt="Boxing Packing Manifesting">
+                    </div>
+                </div>
+            </section>
+
+            <section id="containers">
+                <div class="row module-row g-5">
+                    <div class="col-lg-5 module-text">
+                        <h2 class="section-title">Container Loading Intelligence</h2>
+
+                        <p>
+                            Container and trailer planning supports load balancing, route sequencing,
+                            capacity utilization, shipment preparation, and delivery execution.
+                        </p>
+
+                        <p>
+                            XRP helps operations visualize how freight is loaded before a truck leaves
+                            the dock, reducing loading errors and improving route confidence.
+                        </p>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <img src="Images/ContainerPacking.png" class="screen-img" alt="Container Loading">
+                    </div>
+                </div>
+            </section>
+
+            <section id="routes" class="section-white">
+                <div class="row module-row g-5">
+                    <div class="col-lg-5 module-text">
+                        <h2 class="section-title">Route Planning & Dispatch</h2>
+
+                        <p>
+                            Route Planning connects shipment demand, customer stops, container loading,
+                            dispatch preparation, driver execution, and delivery visibility into a single
+                            transportation workflow.
+                        </p>
+
+                        <p>
+                            XRP helps operations plan routes before freight leaves the dock by organizing
+                            stops, sequencing deliveries, estimating route activity, coordinating load order,
+                            and preparing driver-ready execution data.
+                        </p>
+
+                        <ul class="cap-list mt-4">
+                            <li><i class="bi bi-check-circle-fill"></i>Customer stop sequencing</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Route run planning</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Truck and container load coordination</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Dispatch readiness validation</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Driver mobile workflow preparation</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Delivery status visibility</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <img src="Images/TruckDrivers.png" class="screen-img" alt="Route Planning">
+                    </div>
+                </div>
+            </section>
+
+            <section id="mobile">
+                <div class="row module-row g-5">
+                    <div class="col-lg-5 module-text">
+                        <h2 class="section-title">Driver Mobile Application</h2>
+
+                        <p>
+                            The Driver Mobile Application extends XRP from the back office and warehouse
+                            into the field. Drivers can view assigned routes, manage stops, support delivery
+                            execution, and keep transportation activity connected to the enterprise workflow.
+                        </p>
+
+                        <p>
+                            Mobile execution closes the loop between dispatch, customer delivery, shipment
+                            status, and future proof-of-delivery workflows.
+                        </p>
+
+                        <ul class="cap-list mt-4">
+                            <li><i class="bi bi-check-circle-fill"></i>Driver route assignments</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Real Time GPS</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Stop-by-stop execution visibility</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Delivery workflow support</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Dispatch-to-driver communication</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Future proof-of-delivery support</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Mobile field operations integration</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <img src="Images/MobileApp.png" class="screen-img" alt="Driver Mobile Application">
+                    </div>
+                </div>
+            </section>
+
+            <section id="transportation" class="section-white">
+                <div class="row module-row g-5">
+                    <div class="col-lg-5 module-text">
+                        <h2 class="section-title">Transportation Management</h2>
+
+                        <p>
+                            Transportation Management connects route planning, dispatch, shipment coordination,
+                            container loading, driver execution, mobile activity, and delivery tracking into a
+                            single workflow.
+                        </p>
+
+                        <p>
+                            XRP gives logistics teams operational control over what is shipping, where it is going,
+                            how it is loaded, who is delivering it, and how delivery execution connects back to
+                            the original customer order.
+                        </p>
+
+                        <ul class="cap-list mt-4">
+                            <li><i class="bi bi-check-circle-fill"></i>Route planning and dispatch</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Shipment coordination</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Container and truck loading visibility</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Driver mobile readiness</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Delivery execution visibility</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <img src="Images/TruckDrivers.png" class="screen-img" alt="Transportation Management">
+                    </div>
+                </div>
+            </section>
+
+            <section id="financials">
+                <h2 class="section-title">Financial Management</h2>
+
+                <p class="section-subtitle">
+                    XRP financials connect General Ledger, Accounts Payable, Accounts Receivable,
+                    reporting, journal entries, account balances, and audit-ready transaction tracking.
+                </p>
+
+                <div class="row g-4 mt-4 financial-grid">
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <img src="Images/ChartofAccounts.png" class="screen-img mb-3" alt="Chart of Accounts">
+                            <h4>Chart of Accounts</h4>
+                            <p>Standardized account structure for financial control and reporting.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <img src="Images/JournalEntries.png" class="screen-img mb-3" alt="Journal Entries">
+                            <h4>Journal Entries</h4>
+                            <p>Audit-ready posting, review, and transaction traceability.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <img src="Images/BalanceSheet.png" class="screen-img mb-3" alt="Balance Sheet">
+                            <h4>Balance Sheet</h4>
+                            <p>Real-time view of assets, liabilities, and equity.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <img src="Images/ProfitLoss.png" class="screen-img mb-3" alt="Profit and Loss">
+                            <h4>Profit & Loss</h4>
+                            <p>Revenue, expense, and profitability reporting.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <img src="Images/AccountReceivable.png" class="screen-img mb-3" alt="Accounts Receivable">
+                            <h4>Accounts Receivable</h4>
+                            <p>Customer invoices, payments, balances, and collections visibility.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="feature-card">
+                            <img src="Images/APInvoiceList.png" class="screen-img mb-3" alt="Accounts Payable">
+                            <h4>Accounts Payable</h4>
+                            <p>Vendor invoices, payment obligations, liabilities, and supplier controls.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="security" class="section-white">
+                <div class="row module-row g-5">
+                    <div class="col-lg-5 module-text">
+                        <h2 class="section-title">Identity & Security</h2>
+
+                        <p>
+                            Security provides centralized management for user access, authentication,
+                            authorization, roles, permissions, and audit controls across the enterprise.
+                        </p>
+
+                        <p>
+                            XRP supports governance, accountability, and controlled access across business
+                            applications and operational data.
+                        </p>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <img src="Images/Security.png" class="screen-img" alt="Security">
+                    </div>
+                </div>
+            </section>
+
+            <section id="roadmap">
+                <h2 class="section-title">Future Roadmap</h2>
+
+                <p class="section-subtitle">
+                    Future enhancements include GPS tracking, proof-of-delivery, advanced carrier integration,
+                    predictive scheduling, AI-assisted planning, enhanced analytics, and expanded logistics intelligence.
+                </p>
+
+                <div class="row g-4 mt-4">
+                    <div class="col-md-3">
+                        <div class="feature-card">
+                            <h4>GPS Tracking</h4>
+                            <p>Live route and driver visibility.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="feature-card">
+                            <h4>Proof of Delivery</h4>
+                            <p>Mobile delivery confirmation workflows.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="feature-card">
+                            <h4>Carrier Integration</h4>
+                            <p>FedEx, UPS, DHL, and future carrier support.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="feature-card">
+                            <h4>AI Planning</h4>
+                            <p>Predictive scheduling and smarter logistics decisions.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <strong>© 2026 Xtreme Software Solutions. All Rights Reserved.</strong>
+                <br>
+                XRP Enterprise Platform | Open Source ERP, Manufacturing, Logistics & Financial Platform
+            </footer>
+
+        </main>
 
     </div>
 
