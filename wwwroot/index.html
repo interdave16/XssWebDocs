@@ -113,7 +113,8 @@
         }
 
         .hero-img {
-            max-height: 430px;
+            max-height: 650px;
+            width: auto;
             border-radius: 18px;
             box-shadow: 0 20px 55px rgba(0,0,0,.35);
         }
@@ -336,6 +337,67 @@
                 display: table;
             }
         }
+
+        .hero-contact-card {
+            background: rgba(255,255,255,.12);
+            border: 1px solid rgba(255,255,255,.18);
+            border-radius: 16px;
+            padding: 18px 22px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            flex-wrap: wrap;
+        }
+
+        .contact-item i {
+            min-width: 20px;
+            color: #fff;
+        }
+
+        .contact-item a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .contact-item i {
+            color: #fff;
+        }
+
+        .contact-item a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .hero-product-badge {
+            display: inline-block;
+            padding: 12px 22px;
+            background: rgba(255,255,255,.12);
+            border: 1px solid rgba(255,255,255,.18);
+            border-radius: 999px;
+            color: #fff;
+            font-weight: 600;
+            backdrop-filter: blur(6px);
+        }
+
     </style>
 </head>
 
@@ -382,31 +444,101 @@
             <section id="home" class="hero">
                 <div class="container-fluid">
                     <div class="row align-items-center g-5">
+
                         <div class="col-lg-7">
-                            <div class="hero-badge">Open Source ERP • Manufacturing • WMS • TMS • Financials</div>
 
-                            <h1>XRP Enterprise Platform</h1>
-
-                            <p>
-                                One platform connecting customers, vendors, inventory, manufacturing,
-                                scheduling, warehouse execution, route planning, mobile delivery,
-                                transportation, and financial operations.
-                            </p>
-
-                            <p>
-                                XRP gives organizations real-time visibility and operational control from
-                                order entry to final delivery, invoicing, and accounting.
-                            </p>
-
-                            <div class="mt-4 d-flex gap-3 flex-wrap">
-                                <a href="#architecture" class="btn btn-primary btn-lg">Explore Platform</a>
-                                <a href="#technical" class="btn btn-outline-light btn-lg">Technical Mission</a>
+                            <div class="hero-badge">
+                                ERP • Manufacturing • Warehouse Management • Transportation • Financials • Logistics Intelligence
                             </div>
+
+                            <h1 class="display-3 fw-bold mb-4">
+                                XRP Enterprise Platform
+                            </h1>
+
+                            <p class="lead fs-4">
+                                One Platform. One Workflow. Complete Operational Visibility.
+                            </p>
+
+                            <p>
+                                XRP Enterprise Platform unifies ERP, Manufacturing, Warehouse Management,
+                                Transportation Management, Mobile Operations, and Financial Management into
+                                a single integrated business platform.
+                            </p>
+
+                            <p>
+                                Designed for organizations that have outgrown disconnected systems and spreadsheets,
+                                XRP provides complete visibility from customer demand through production,
+                                fulfillment, transportation, delivery, invoicing, and financial reporting.
+                            </p>
+
+                            <p>
+                                Whether managing a single facility or multiple plants, XRP delivers
+                                real-time operational control, enterprise scalability, and actionable
+                                business intelligence across every department.
+                            </p>
+
+                            <div class="hero-contact-card mt-4 mb-4">
+                                <div class="contact-item">
+                                    <i class="bi bi-envelope-fill"></i>
+                                    <a href="mailto:info@xtremesoftwaresolutions.com">
+                                        info@xtremesoftwaresolutions.com
+                                    </a>
+                                </div>
+
+                                <div class="contact-item mt-2">
+                                    <i class="bi bi-globe2"></i>
+                                    <a href="https://www.xtremesoftwaresolutions.com">
+                                        www.xtremesoftwaresolutions.com
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-3 flex-wrap">
+                                <a href="#architecture" class="btn btn-primary btn-lg px-4">
+                                    <i class="bi bi-diagram-3-fill"></i>
+                                    Explore Platform
+                                </a>
+
+                                <a href="mailto:info@xtremesoftwaresolutions.com"
+                                   class="btn btn-outline-light btn-lg px-4">
+                                    <i class="bi bi-envelope-fill"></i>
+                                    Request Information
+                                </a>
+                            </div>
+
+                            <div class="row mt-5 pt-4 border-top border-light border-opacity-25">
+                                <div class="col-md-4 text-center text-lg-start">
+                                    <h2 class="fw-bold">ERP</h2>
+                                    <small>Operations & Financial Management</small>
+                                </div>
+
+                                <div class="col-md-4 text-center">
+                                    <h2 class="fw-bold">WMS / TMS</h2>
+                                    <small>Warehouse & Transportation Execution</small>
+                                </div>
+
+                                <div class="col-md-4 text-center text-lg-end">
+                                    <h2 class="fw-bold">Multi-Plant</h2>
+                                    <small>Enterprise Scalability & Growth</small>
+                                </div>
+                            </div>
+
                         </div>
 
                         <div class="col-lg-5 text-center">
-                            <img src="Images/HomePage.png" class="img-fluid hero-img" alt="XRP Home Page">
+                            <img src="Images/HomePage.png"
+                                 class="img-fluid hero-img"
+                                 alt="XRP Enterprise Platform">
+
+                            <div class="mt-4 text-center">
+
+                            <div class="hero-product-badge">
+                                Enterprise Ready • Open Source • AI Accelerated Development
+                            </div>
+
                         </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
@@ -1291,9 +1423,27 @@
             </section>
 
             <footer>
-                <strong>© 2026 Xtreme Software Solutions. All Rights Reserved.</strong>
-                <br>
-                XRP Enterprise Platform | Open Source ERP, Manufacturing, Logistics & Financial Platform
+                <div class="container text-center">
+
+                    <div class="fw-bold fs-5">
+                        Xtreme Software Solutions
+                    </div>
+
+                    <div class="mt-2">
+                        XRP Enterprise Platform
+                    </div>
+
+                    <div class="text-light-emphasis mt-2">
+                        Enterprise Resource Planning • Manufacturing • Warehouse Management • Transportation Management • Financial Management
+                    </div>
+
+                    <hr class="my-3 opacity-25">
+
+                    <div class="small">
+                        © 2026 Xtreme Software Solutions | All Rights Reserved
+                    </div>
+
+                </div>
             </footer>
 
         </main>
