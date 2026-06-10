@@ -33,7 +33,7 @@
         }
 
         .sidebar {
-            width: 280px;
+            width: 300px;
             height: 100vh;
             position: fixed;
             left: 0;
@@ -207,9 +207,9 @@
             box-shadow: 0 16px 45px rgba(7,28,51,.25);
         }
 
-            .tech-panel p {
-                color: #d9ecff;
-            }
+        .tech-panel p {
+            color: #d9ecff;
+        }
 
         .tech-pill {
             display: inline-block;
@@ -358,16 +358,16 @@
             <a href="#scheduler">13. Production Scheduler</a>
 
             <a href="#boxing">14. Boxing, Packing & Manifesting</a>
-            <a href="#pallets">15. Pallet Packing Intelligence</a>
-            <a href="#containers">16. Container Loading Intelligence</a>
+            <!--<a href="#pallets">15. Pallet Packing Intelligence</a>-->
+            <a href="#containers">15. Container Loading Intelligence</a>
 
-            <a href="#routes">17. Route Planning & Dispatch</a>
-            <a href="#mobile">18. Driver Mobile Application</a>
-            <a href="#transportation">19. Transportation Management</a>
+            <a href="#routes">16. Route Planning & Dispatch</a>
+            <a href="#mobile">17. Driver Mobile Application</a>
+            <a href="#transportation">18. Transportation Management</a>
 
-            <a href="#financials">20. Financial Management</a>
-            <a href="#security">21. Identity & Security</a>
-            <a href="#roadmap">22. Future Roadmap</a>
+            <a href="#financials">19. Financial Management</a>
+            <a href="#security">20. Identity & Security</a>
+            <a href="#roadmap">21. Future Roadmap</a>
         </nav>
 
         <main class="main">
@@ -685,24 +685,103 @@
             </section>
 
             <section id="manufacturing" class="section-white">
-                <div class="row module-row g-5">
+                <div class="row module-row g-5 align-items-center">
+
                     <div class="col-lg-5 module-text">
-                        <h2 class="section-title">Manufacturing Operations</h2>
 
-                        <p>
-                            Assembly Management, Bills of Material, Machine Stops, Routes, and Traceability
-                            support repeatable production workflows and operational visibility.
+                        <span class="module-badge">
+                            <i class="bi bi-gear-fill"></i>
+                            Manufacturing Execution
+                        </span>
+
+                        <h2 class="section-title mt-3">
+                            Manufacturing Operations
+                        </h2>
+
+                        <p class="lead-text">
+                            XRP provides an integrated manufacturing platform that connects
+                            engineering, production, inventory, scheduling, warehouse operations,
+                            and financial costing into a single operational workflow.
                         </p>
 
                         <p>
-                            XRP connects manufacturing activity directly to inventory, sales demand,
-                            scheduling, warehouse execution, and costing.
+                            Production processes are driven through Bills of Material (BOM),
+                            Assembly Routes, Machine Stops, and configurable Assembly Lines,
+                            enabling organizations to standardize manufacturing procedures while
+                            maintaining flexibility across products and facilities.
                         </p>
+
+                        <p>
+                            Every manufacturing transaction remains connected to inventory
+                            consumption, labor activity, scheduling, traceability, and finished
+                            goods production, providing complete visibility from raw materials
+                            through completed assemblies.
+                        </p>
+
+                        <div class="feature-grid mt-4">
+
+                            <div class="feature-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                Bill of Material (BOM) management
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                Multiple assembly lines and production cells
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                Configurable assembly routes and workflows
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                Machine stops and workstation sequencing
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                Production scheduling and line balancing
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                Material consumption and inventory integration
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                Full production traceability and audit history
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                Real-time work-in-process visibility
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                Standard cost and assembly cost rollups
+                            </div>
+
+                            <div class="feature-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                Multi-plant manufacturing support
+                            </div>
+
+                        </div>
+
                     </div>
 
                     <div class="col-lg-7">
-                        <img src="Images/Manufacturing.png" class="screen-img" alt="Manufacturing Operations">
+                        <div class="image-showcase">
+                            <img src="Images/Manufacturing.png"
+                                 class="screen-img"
+                                 alt="Manufacturing Operations">
+                        </div>
                     </div>
+
                 </div>
             </section>
 
@@ -865,24 +944,79 @@
                 </div>
             </section>
 
-            <section id="containers">
-                <div class="row module-row g-5">
-                    <div class="col-lg-5 module-text">
-                        <h2 class="section-title">Container Loading Intelligence</h2>
+            <section id="containers" class="module-section py-5">
+                <div class="container">
+                    <div class="row align-items-center g-5">
 
-                        <p>
-                            Container and trailer planning supports load balancing, route sequencing,
-                            capacity utilization, shipment preparation, and delivery execution.
-                        </p>
+                        <!-- Content -->
+                        <div class="col-lg-6 module-text">
+                            <span class="module-badge">
+                                <i class="bi bi-box-seam"></i>
+                                Load Planning Intelligence
+                            </span>
 
-                        <p>
-                            XRP helps operations visualize how freight is loaded before a truck leaves
-                            the dock, reducing loading errors and improving route confidence.
-                        </p>
-                    </div>
+                            <h2 class="section-title mt-3">
+                                Container Loading & Route Intelligence
+                            </h2>
 
-                    <div class="col-lg-7">
-                        <img src="Images/ContainerPacking.png" class="screen-img" alt="Container Loading">
+                            <p class="lead-text">
+                                XRP helps operations plan how pallets, containers, trailers, routes,
+                                and customer stops come together before freight leaves the dock.
+                            </p>
+
+                            <p>
+                                Teams can visualize load placement, route sequence, pallet grouping,
+                                trailer capacity, and shipment readiness in a single operational workflow.
+                                This improves loading accuracy, route confidence, and delivery execution.
+                            </p>
+
+                            <div class="feature-grid mt-4">
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    3D trailer and container load visualization
+                                </div>
+
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Route stop sequencing and customer delivery order
+                                </div>
+
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Pallet grouping, stacking, and capacity planning
+                                </div>
+
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Weight, cube, space, and utilization visibility
+                                </div>
+
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Load preparation before dispatch
+                                </div>
+
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Reduced loading errors and shipment rework
+                                </div>
+
+                                <div class="feature-item">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    Connected WMS, TMS, routing, and dispatch workflow
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Screenshot -->
+                        <div class="col-lg-6 text-center">
+                            <div class="image-showcase">
+                                <img src="Images/ContainerPacker.png"
+                                     class="screen-img"
+                                     alt="Container Loading and Route Intelligence">
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
